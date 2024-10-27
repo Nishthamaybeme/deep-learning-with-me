@@ -40,16 +40,12 @@ In image processing, a convolution requires three components:
 4. Store the output in the output image at the same (x, y)-coordinates.
 
 ### Example
-Consider convolving a 3 x 3 region of an image with a 3 x 3 kernel used for blurring:
-
-![Convolution Example](https://via.placeholder.com/400x200.png?text=Convolution+Example)
+Consider convolving a 3 x 3 region of an image with a 3 x 3 kernel used for blurring
 
 After applying this convolution, the output pixel at coordinate (i, j) would reflect the result of this operation.
 
 ## Conclusion
 Convolution is simply the sum of element-wise matrix multiplication between the kernel and the neighborhood that the kernel covers of the input image. Understanding convolutions is essential for anyone diving into the field of computer vision and deep learning.
-
-![Finding Horizontal Gradients](https://via.placeholder.com/400x200.png?text=Finding+Horizontal+Gradients)
 
 ### Additional Resources
 For practical implementation, consider using libraries like OpenCV and Python to apply convolutions in your image processing tasks.
