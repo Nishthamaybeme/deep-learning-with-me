@@ -180,5 +180,184 @@ This code provides a comprehensive look at Object-Oriented Programming in Python
 4. **Methods**: Including instance methods and static methods, demonstrating how behavior is defined within classes.
 5. **Encapsulation**: With private and public access modifiers, emphasizing controlled access.
 6. **Principles of OOP**: Demonstrating abstraction, encapsulation, and setting up for inheritance and polymorphism.
+# class Student1:   # class 
+#     name="nishtha"
+# # class is a blueprint (like we get the information of students to fill the classes in our school)
+# s1=Student1()  # s1 is an object of the class Student
 
+# # now the objects are the actual students in our school
+
+# # print(s1.name)  # Output: nishtha
+# # class Car:
+# #     color="blue"
+# #     brand="mercedes"
+# # car1 = Car()
+# # print(car1.color)
+# # print(car1.brand)
+
+# #constructor 
+# # when a new object is created a constructor is executed 
+# # python automatically  calls the constructor when we create a new object
+# class  Student2:
+#     def __init__(self):
+#         pass    #  this one above is a default constructor 
+#     def  __init__(self,fullname):  # constructor
+#         self.name=fullname
+#         print("adding new student in the db")
+#         # this one above is a parameterised constructor 
+
+# # cosntructor always take a self parameter  which is a reference to the current instance(object) of the class and is used to access variables and methods from
+
+# s1=Student2("nishtha")
+# print(s1.name)
+# # all data stored or variables are called attributes  of the class
+# # the constructor written at last would override the before constructors 
+# # and we should always make one constructor 
+# # # Summary
+# # Single Constructor: In Python, only one __init__ method can be defined. If you define multiple, the last one will override the previous ones.
+# # Parameter Matching: To allow for different types of instantiation (like using different parameters), use default arguments or variable-length arguments to handle multiple cases without needing to define multiple constructors.
+# # Error Handling: It's always good practice to handle potential errors, such as an incorrect number of arguments.
+# class Student3:
+#     def __init__(self, *args):  # Accept any number of arguments
+#         if len(args) == 2:  # Expecting two arguments (name, age)
+#             self.name = args[0]
+#             self.age = args[1]
+#             print("Adding new student with age to the database.")
+#         elif len(args) == 1:  # Expecting one argument (name)
+#             self.name = args[0]
+#             self.age = None
+#             print("Adding new student without age to the database.")
+#         else:
+#             raise ValueError("Invalid number of arguments.")
+
+# # Examples of instantiation
+# s1 = Student3("Nishtha", 54)  # Calls the constructor with two arguments
+# print(s1.name, s1.age)
+
+# s2 = Student3("Alice")  # Calls the constructor with one argument
+# print(s2.name, s2.age)
+# # in the above code we saw how we can use single constructor for handling multiple parametered output without creating multiple constructors also if we make multiple constructor it will override the earlier once ands execute the latter one only
+
+
+# #attributes
+# # attributes are the data stored in the class
+# # class attributes common for all object
+# # instance attributes are specific to each object( different for each object)
+
+# # student(class)
+# # s1 s2 s3 s4 
+# # name name name name isnt name supposed to be an instance attribute 
+# # different for diff object  
+# # self is used for object attributes  self.name for example is an instance/class attribute 
+# # but the name of college will be same for all students so it is a class attribute 
+# class Student4:
+#     collegename="dei college"
+#     name="annonymous"
+#     def __init__(self,name):
+#         self.name=name
+#     # if we have a same name of instance and class attributes  then the instance attribute will be executed first as it has high precedence 
+
+
+
+# s1=Student4("nishtha")
+# s2=Student4("nishtha")
+# print(s2.collegename)
+# # in the above code we saw how we can use class attributes and instance attributes in python
+# #  class attributes are common for all objects and instance attributes are specific to each object
+# #   self is used for instance attributes and class attributes are defined outside the constructor
+# #     class attributes are defined outside the constructor and instance attributes are defined inside the constructor
+# #ccollegename took only one space int he memory whielname is diff for everys tudent so it takes difefernt spaces in the memory 
+
+# print(s1.name)
+# print(Student4.collegename)
+
+# #######METHODS ########3
+# # I A CLASS TWO THINGS ARE STORED ATTRIVUTES AND METHODS 
+# METHODS ARE THE FUNCTIONS DEFINED INSIDE THE CLASS
+# ATTRIBUTES ARE THE DATA STORED 
+# METHODS ARE BASICALLY FUNCTIONS THAT BELONGS TO OBJECTS 
+class Student :
+
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def welcome(self): #this is a method or u can say a fucntion  inside a class
+        print("welcome",self.name)
+        
+    def get_marks(self):
+        return self.marks
+    
+
+s1=Student("nishtha",21)
+s1.welcome() #this is how wecall a method inside a class
+
+print(s1.get_marks()) #this is how we call a method inside a class
+
+
+class Student:
+    def __init__(self,name,marks):
+        self.name=name
+        self.marks=marks
+
+    def get_avg(self):
+        sum=0
+        for val in self.marks:
+            sum+=val
+        print("hi", self.name ," ur avg is ",sum/3)
+
+
+   
+    
+s1=Student("nishsin",[33,33,23])
+s1.name="nishbish"
+s1.get_avg()
+del s1
+
+#normal methods above
+
+# now static method are introduced 
+# static methods are the methods that belongs to class not to objects
+# they are used to perform some operation on class level not on object level
+# the dont have self parameter and work at class level not object level
+
+# class Student:
+#     # @staticmethod
+#     def hello():
+#         print("hello"
+#               "world")
+#         # calling static method
+# s1=Student( )
+# s1.hello()
+# decorator is modfiiying the function which chnages the behavior of a normal function 
+# decorators are used to add some extra functionality to the existing function without changing it
+# oops have four pillars
+# abstraction encapsulation
+# inerhtience and polymorphsom
+# abstraction is hiding unnecessary things from the user 
+
+#del keywword used to delete
+# private  and public 
+
+# above s1 is public
+class Account:
+    def __init__(self,accno,password):
+        self.acc_no=accno#public variable
+        self.__password=password # private variable
+    def reset_pass(self):
+        print(self.__password)    
+
+acc1=Account("122","232")
+# print(acc1.__password)# we cant access it outside class
+print(acc1.reset_pass())
+# encapsulation is hiding the data from the outside world and showing only the methods to access it
+
+class PErson:
+    __name="annoymous"
+
+    def __hello():print("bello")
+
+p1=PErson()
+print(p1.__name)
+print(p1.__hello())
 With these elements, this code provides a strong understanding of OOP, setting the stage for more complex patterns and structures in software development.
